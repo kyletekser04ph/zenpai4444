@@ -1,6 +1,6 @@
 module.exports = {
  config: {
- name: "perfect",
+ name: "Kyle Bait-it",
  version: "1.0",
  author: "leeza", // xue editz
  countDown: 5,
@@ -11,9 +11,9 @@ module.exports = {
  }, 
  onStart: async function(){}, 
  onChat: async function({ event, message, getLang }) {
- if (event.body && event.body.toLowerCase() === "perfect") {
+ if (event.body && event.body.toLowerCase() === "KYLE BAIT-IT") {
  return message.reply({
- body: "Dont Call Mr perfect If he Aint Here !!",
+ body: "Dont Call Kyle Bait-it If he Aint Here !!",
  attachment: await global.utils.getStreamFromURL("https://i.imgur.com/PLuem6i.jpeg")
  });
  }
