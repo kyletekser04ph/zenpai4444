@@ -1,12 +1,12 @@
 const axios = require('axios');
 
 const GPT_API_URL = 'https://sandipapi.onrender.com/gpt';
-const PREFIXES = ['ai'];
+const PREFIXES = ['askv1'];
 const horizontalLine = "━━━━━━━━━━━━━━━";
 
 module.exports = {
   config: {
-    name: "ai",
+    name: "askv1",
     version: 1.0,
     author: "OtinXSandip",
     longDescription: "AI",
@@ -29,7 +29,7 @@ module.exports = {
       const prompt = event.body.substring(prefix.length).trim();
 
       if (!prompt) {
-        const defaultMessage = getCenteredHeader("MR PERFECT | 🧋✨") + "\n" + horizontalLine + "\nHey! How can I assist you in your AI journey?\n" + horizontalLine;
+        const defaultMessage = getCenteredHeader("𝗮𝘀𝗸𝘃𝟭 𝗚𝗣𝗧 𝘃𝗲𝗿𝘀𝗶𝗼𝗻 𝟭.𝟬") + "\n" + horizontalLine + "\nHey! How can I assist you in your AI journey?\n" + horizontalLine;
         await message.reply(defaultMessage);
         return;
       }
@@ -37,7 +37,7 @@ module.exports = {
       const answer = await getGPTResponse(prompt);
 
       // Adding header and horizontal lines to the answer
-      const answerWithHeader = getCenteredHeader("𝙼r perfect | 🧋✨") + "\n" + horizontalLine + "\n" + answer + "\n" + horizontalLine;
+      const answerWithHeader = getCenteredHeader("𝗮𝘀𝗸𝘃𝟭 𝗚𝗣𝗧 𝘃𝗲𝗿𝘀𝗶𝗼𝗻 𝟭.𝟬") + "\n" + horizontalLine + "\n" + answer + "\n" + horizontalLine;
 
       await message.reply(answerWithHeader);
     } catch (error) {
