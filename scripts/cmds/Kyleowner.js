@@ -5,8 +5,8 @@ const path = require('path');
 module.exports = {
   config: {
     name: "owner",
-    aliases: ["info","MR PERFECT"],
-    author: " Mr perfect ", 
+    aliases: ["info","Kyle"],
+    author: "Kylepogi", 
     version: "2.0",
     cooldowns: 0,
     role: 0,
@@ -23,16 +23,16 @@ module.exports = {
   },
   onStart: async function ({ api, event }) {
       try {
-        const loadingMessage = "𝙇𝙤𝙖𝙙𝙞𝙣𝙜......";
+        const loadingMessage = "⏱️ 𝙇𝙤𝙖𝙙𝙞𝙣𝙜 𝙥𝙡𝙚𝙖𝙨𝙚 𝙬𝙖𝙞𝙩......";
         await api.sendMessage(loadingMessage, event.threadID);
 
         const ownerInfo = {
-          name: '𝑴𝑹 𝑷𝑬𝑹𝑭𝑬𝑪𝑻',
+          name: '𝙆𝙔𝙇𝙀 𝘽𝘼𝙄𝙏-𝙄𝙏',
           gender: '𝘽𝙤𝙮',
-          hobby: '𝙅𝙪𝙨𝙩 𝙖 𝙃𝙖𝙥𝙥𝙮 𝙡𝙞𝙛𝙚 ',
-          relationship: '𝙎𝙞𝙣𝙜𝙡𝙚 𝙔𝙚𝙩!',
-          facebookLink: ' ',
-          bio: '𝙏𝙤 𝙢𝙖𝙠𝙚 𝙛𝙪𝙣'
+          hobby: '𝙅𝙪𝙨𝙩 𝙘𝙝𝙞𝙡𝙡𝙞𝙣 𝙡𝙞𝙠𝙚 𝙖 𝙥𝙚𝙖𝙘𝙚𝙛𝙪𝙡 𝙡𝙞𝙛𝙚😉',
+          relationship: '𝙬𝙞𝙩𝙝 𝙇𝙖𝙞 𝙉𝙚',
+          facebookLink: 'https://www.facebook.com/itssmekylebaitit',
+          bio: '📩https://ngl.link/kylezzigop2'
         };
 
         const videoUrl = 
@@ -55,16 +55,15 @@ module.exports = {
         fs.writeFileSync(videoPath, Buffer.from(videoResponse.data, 'binary'));
 
         const response = `
-       𝕆𝕨𝕟𝕖𝕣 𝕀𝕟𝕗𝕠𝕣𝕞𝕒𝕥𝕚𝕠𝕟
-««««««««««««««»»»»»»»»»»»»»»  
-☆☆☆☆☆☆(◠‿◠)☆☆☆☆☆☆     
-𝙉𝙖𝙢𝙚:${ownerInfo.name}          
-𝙂𝙚𝙣𝙙𝙚𝙧:${ownerInfo.gender}
-𝙃𝙤𝙗𝙗𝙮:${ownerInfo.hobby}
-𝙍𝙚𝙡𝙚𝙖𝙩𝙞𝙤𝙣𝙨𝙝𝙞𝙥:${ownerInfo.relationship}
-𝙁𝙖𝙘𝙚𝙗𝙤𝙤𝙠 𝙡𝙞𝙣𝙠:${ownerInfo.facebookLink}
-𝙂𝙤𝙖𝙡𝙨:${ownerInfo.bio} 
-        `;
+➣ 👤 | 𝗢𝘄𝗻𝗲𝗿 𝗜𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻 ❏
+╔══════✮❁•°♛°•❁✮ ═════╗     
+ 𝙉𝙖𝙢𝙚:${ownerInfo.name}          
+ 𝙂𝙚𝙣𝙙𝙚𝙧:${ownerInfo.gender}
+ 𝙃𝙤𝙗𝙗𝙮:${ownerInfo.hobby}
+ 𝙍𝙚𝙡𝙚𝙖𝙩𝙞𝙤𝙣𝙨𝙝𝙞𝙥:${ownerInfo.relationship}
+ 𝙁𝙖𝙘𝙚𝙗𝙤𝙤𝙠 𝙡𝙞𝙣𝙠:${ownerInfo.facebookLink}
+ 𝙂𝙤𝙖𝙡𝙨:${ownerInfo.bio} 
+╚══════✮❁•°❀°•❁✮══════╝`;
 
         await api.sendMessage({
           body: response,
