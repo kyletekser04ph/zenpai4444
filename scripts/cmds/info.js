@@ -5,7 +5,7 @@ module.exports = {
   config: {
     name: "info2",
     version: "1.0",
-    author: "Mr perfect",
+    author: "Kylepogi",
     countDown: 0,
     role: 0,
     shortDescription: { vi: "", en: "" },
@@ -15,14 +15,14 @@ module.exports = {
     envConfig: {}
   },
   onStart: async function ({ message }) {
-    const botName = "Mr perfect";
-    const botPrefix = "+";
-    const authorName = "Mr perfect";
-    const ownAge = "18";
+    const botName = "𝗭𝗘𝗣𝗛𝗬𝗥𝗨𝗦 𝗔𝗜";
+    const botPrefix = "=";
+    const authorName = "𝗞𝗬𝗟𝗘 𝗕𝗔𝗜𝗧-𝗜𝗧;
+    const ownAge = "19";
     const teamName = "Github team";
-    const authorFB = "https://www.facebook.com/m.zenesha";
-    const authorInsta = "https://www.instagram.com/devildeacon?igsh=Z2R2dXZkYWNjanQw";
-    const tikTok = "https://www.tiktok.com/@rx______editz06?_t=8kK7a7zlktG&_r=1";
+    const authorFB = "https://www.facebook.com/itssmekylebaitit";
+    const authorInsta = "itssmekylebaitit";
+    const tikTok = "𝙆𝙮𝙡𝙚/🇵🇭/🇯🇵/🇰🇷";
     const urls = JSON.parse(fs.readFileSync('perfect.json'));
     const link = urls[Math.floor(Math.random() * urls.length)];
     const now = moment().tz('Asia/Kathmandu');
