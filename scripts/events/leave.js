@@ -1,4 +1,5 @@
 const { getTime, drive } = global.utils;
+const moment = require("moment-timezone");
 
 module.exports = {
 	config: {
@@ -23,9 +24,9 @@ module.exports = {
 			session2: "noon",
 			session3: "afternoon",
 			session4: "evening",
-			leaveType1: "left",
-			leaveType2: "was kicked from",
-			defaultLeaveMessage: "{userName} {type} the group"
+			leaveType1: "𝗹𝗲𝗳𝘁",
+			leaveType2: "𝘄𝗮𝘀  𝗸𝗶𝗰𝗸𝗲𝗱 𝗳𝗿𝗼𝗺",
+			defaultLeaveMessage: "𝗚𝗢𝗢𝗗 𝗕𝗬𝗘 {userName}.\n\n📜𝗥𝗘𝗔𝗦𝗢𝗡: {type} 𝘁𝗵𝗲 𝗴𝗿𝗼𝘂𝗽\n\n𝑠𝑒𝑒 𝑦𝑜𝑢 𝑎𝑔𝑎𝑖𝑛 𝑛𝑖𝑔𝑔𝑎ツ\n🗓️ | ⏰ 𝙳𝚊𝚝𝚎 & 𝚃𝚒𝚖𝚎:\n${formattedDateTime}\n\n"
 		}
 	},
 
@@ -91,6 +92,8 @@ module.exports = {
 					form.attachment = (await Promise.allSettled(attachments))
 						.filter(({ status }) => status == "fulfilled")
 						.map(({ value }) => value);
+					const manilaTime = moment.tz('Asia/Manila');
+        const formattedDateTime = manilaTime.format('MMMM D, YYYY h:mm A');
 				}
 				message.send(form);
 			};
