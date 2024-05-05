@@ -7,7 +7,7 @@ const doNotDelete = "𝗞𝗬𝗟𝗘 𝗔𝗜𓃵";
 
 module.exports = {
   config: {
-    name: "help",
+    name: "help1",
     version: "1.17",
     author: "NTKhang", // orginal author Kshitiz
     countDown: 0,
