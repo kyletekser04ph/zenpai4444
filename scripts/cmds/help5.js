@@ -3,11 +3,11 @@ const axios = require("axios");
 const path = require("path");
 const { getPrefix } = global.utils;
 const { commands, aliases } = global.GoatBot;
-const doNotDelete = "『[✰megan💌』"; // changing this wont change the goatbot V2 of list cmd it is just a decoyy
+const doNotDelete = "𝗞𝗬𝗟𝗘 𝗔𝗜"; // changing this wont change the goatbot V2 of list cmd it is just a decoyy
 
 module.exports = {
   config: {
-    name: "help6",
+    name: "help5",
     version: "1.17",
     author: "NTKhang", // original author Kshitiz 
     countDown: 0,
@@ -34,7 +34,7 @@ module.exports = {
       const categories = {};
       let msg = "";
 
-      msg += `》🌸𝗔𝗟𝗟-𝗖𝗠𝗗𝘀💌🌸《\n✶⊶⊷⊶⊷❂⊶⊷⊶⊷✶`; // replace with your name 
+      msg += `》𝗭𝗘𝗣𝗛𝗥𝗬𝗨𝗦 𝗔𝗟𝗟-𝗖𝗠𝗗𝘀《\n`; // replace with your name 
 
       for (const [name, value] of commands) {
         if (value.config.role > 1 && role < value.config.role) continue;
@@ -46,12 +46,12 @@ module.exports = {
 
       Object.keys(categories).forEach((category) => {
         if (category !== "info") {
-          msg += `\n》★─⊰『${category.toUpperCase()}』》⊱✮`;
+          msg += `\n》 ➢『${category.toUpperCase()}』`;
 
 
           const names = categories[category].commands.sort();
           for (let i = 0; i < names.length; i += 3) {
-            const cmds = names.slice(i, i + 3).map((item) => ` 🌊${item}|\n`);
+            const cmds = names.slice(i, i + 3).map((item) => ` ➥${item}|\n`);
             msg += `\n ${cmds.join(" ".repeat(Math.max(1, 10 - cmds.join("").length)))}`;
           }
 
@@ -62,7 +62,7 @@ module.exports = {
       const totalCommands = commands.size;
       msg += `\n𝗧𝗢𝗧𝗔𝗟 𝙲𝚖𝚍 ${totalCommands}\n𝚌𝚘𝚖𝚖𝚊𝚗𝚍 𝚝𝚑𝚊 𝚞 𝚌𝚊𝚗 𝚞𝚜𝚎`;
       msg += `𝚝𝚢𝚙𝚎: 「${prefix} 𝗵𝗲𝗹𝗽」+「 𝗰𝗺𝗱𝗡𝗮𝗺𝗲」𝚝𝚘 𝚟𝚒𝚎𝚠 𝚍𝚎𝚝𝚊𝚒𝚕𝚜 𝚘𝚏 𝚌𝚘𝚖𝚖𝚊𝚗𝚍𝚜\n`;
-      msg += `💎 | megan`; // its not decoy so change it if you want 
+      msg += `𝗞𝗬𝗟𝗘 𝗕𝗔𝗜𝗧-𝗜𝗧 𝗔𝗜 𓃵`; // its not decoy so change it if you want 
 
       const helpListImages = [
         "https://i.postimg.cc/d1qcrdcj/0c0efc4460b8911b0c2a9898f4833ded.gif", // add image link here
