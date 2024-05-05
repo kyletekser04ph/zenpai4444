@@ -3,11 +3,11 @@ const axios = require("axios");
 const path = require("path");
 const { getPrefix } = global.utils;
 const { commands, aliases } = global.GoatBot;
-const doNotDelete = "[megan ]"; // changing this wont change the goatbot V2 of list cmd it is just a decoyy
+const doNotDelete = "KYLE AI"; // changing this wont change the goatbot V2 of list cmd it is just a decoyy
 
 module.exports = {
   config: {
-    name: "help5",
+    name: "help4",
     version: "1.17",
     author: "NTKhang", // original author Kshitiz // edit Aesther
     countDown: 5,
@@ -34,7 +34,7 @@ module.exports = {
       const categories = {};
       let msg = "";
 
-      msg += `||◈𝗠𝚒𝚝𝚊𝚖𝚊 𝗖𝗠𝗗◈||`; //  Aesther Edit
+      msg += `||◈𝗭𝗘𝗣𝗛𝗬𝗥𝗨𝗦 𝗖𝗠𝗗 𝗟𝗜𝗦𝗧◈||`; //  Aesther Edit
 
       for (const [name, value] of commands) {
         if (value.config.role > 1 && role < value.config.role) continue;
@@ -58,7 +58,7 @@ const names = categories[category].commands.sort();
       });
 
       const totalCommands = commands.size;
-      msg += `\n🔖𝗧𝗢𝗧𝗔𝗟 𝗖𝗺𝗱 [${totalCommands}📑]\n》𝙲𝚁𝙴𝙰𝚃𝙾𝚁:\n🌊 MR PERFECT 🌊`;
+      msg += `\n𝗧𝗢𝗧𝗔𝗟 𝗖𝗺𝗱 [${totalCommands}📑]\n》𝙲𝚁𝙴𝙰𝚃𝙾𝚁:\n𝗞𝗬𝗟𝗘 𝗕𝗔𝗜𝗧-𝗜𝗧`;
       msg += ``;
       msg += ``; // its not decoy so change it if you want 
 
