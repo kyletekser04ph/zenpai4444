@@ -22,9 +22,9 @@ function writeHotData(data) {
 
 module.exports = {
   config: {
-    name: 'a',
+    name: 'hot',
     version: '1.0',
-    author: 'Mr perfect',
+    author: 'Kyle',
     role: 0,
     shortDescription: {
       en: 'Manage videos'
