@@ -21,7 +21,7 @@ module.exports = {
   },
 
   onStart: async function ({ api, event, args }) {
-    if (this.config.author !== "cliff") {
+    if (this.config.author !== "kylepogi") {
       return api.sendMessage(
         `[ 𝗔𝗡𝗧𝗜 𝗖𝗛𝗔𝗡𝗚𝗘 𝗖𝗥𝗘𝗗𝗜𝗧𝗦 ]
         𝗔𝗗𝗠𝗜𝗡 𝗠𝗘𝗦𝗦𝗔𝗚𝗘: 
