@@ -1,14 +1,21 @@
+const moment = require("moment-timezone");
+const manilaTime = moment.tz('Asia/Manila');
+const formattedDateTime = manilaTime.format('MMMM D, YYYY h:mm A');
 const { getStreamsFromAttachment, log } = global.utils;
 const mediaTypes = ["photo", 'png', "animated_image", "video", "audio"];
 
 module.exports = {
 	config: {
 		name: "callad",
-		version: "1.7",
+		version: "1.6",
 		author: "NTKhang",
 		countDown: 5,
 		role: 0,
-		description: {
+		shortDescription: {
+			vi: "gửi tin nhắn về admin bot",
+			en: "send message to admin bot"
+		},
+		longDescription: {
 			vi: "gửi báo cáo, góp ý, báo lỗi,... của bạn về admin bot",
 			en: "send report, feedback, bug,... to admin bot"
 		},
@@ -38,9 +45,9 @@ module.exports = {
 			sendByGroup: "\n- Sent from group: %1\n- Thread ID: %2",
 			sendByUser: "\n- Sent from user",
 			content: "\n\nContent:\n─────────────────\n%1\n─────────────────\nReply this message to send message to user",
-			success: "Sent your message to %1 admin successfully!\n%2",
+			success: "𝙎𝙚𝙣𝙩 𝙮𝙤𝙪𝙧 𝙢𝙚𝙨𝙨𝙖𝙜𝙚 𝙩𝙤 %1 𝙖𝙙𝙢𝙞𝙣 𝙨𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮!",
 			failed: "An error occurred while sending your message to %1 admin\n%2\nCheck console for more details",
-			reply: "📍 Reply from admin %1:\n─────────────────\n%2\n─────────────────\nReply this message to continue send message to admin",
+			reply: "📌 𝙍𝙚𝙥𝙡𝙮 𝙛𝙧𝙤𝙢 𝘽𝙤𝙩 𝘼𝙙𝙢𝙞𝙣:\n\n🗓 | ⏰ 𝗗𝗮𝘁𝗲 𝗔𝗻𝗱 𝗧𝗶𝗺𝗲:\n${formattedDateTime}\n\n࿇ ══━━━━✥◈✥━━━━══ ࿇\n%2\n࿇ ══━━━━✥◈✥━━━━══ ࿇\n\nℹ️ | 𝘙𝘦𝘱𝘭𝘺 𝘵𝘩𝘪𝘴  𝘮𝘦𝘴𝘴𝘢𝘨𝘦  𝘵𝘰 𝘤𝘰𝘯𝘵𝘪𝘯𝘶𝘦  𝘴𝘦𝘯𝘥 𝘮𝘦𝘴𝘴𝘢𝘨𝘦 𝘵𝘰 𝘢𝘥𝘮𝘪𝘯",
 			replySuccess: "Sent your reply to admin successfully!",
 			feedback: "📝 Feedback from user %1:\n- User ID: %2%3\n\nContent:\n─────────────────\n%4\n─────────────────\nReply this message to send message to user",
 			replyUserSuccess: "Sent your reply to user successfully!",
