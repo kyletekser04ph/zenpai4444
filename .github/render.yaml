@@ -1,0 +1,11 @@
+# Exported from Render on 2024-05-10T05:03:01Z
+services:
+- type: web
+  name: nigga
+  runtime: node
+  repo: https://github.com/theabnoonymou/nigga
+  plan: free
+  region: oregon
+  buildCommand: npm install
+  startCommand: node index.js
+version: "1"
