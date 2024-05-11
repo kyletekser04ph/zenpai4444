@@ -47,7 +47,7 @@ module.exports = {
 			content: "\n\nContent:\n─────────────────\n%1\n─────────────────\nReply this message to send message to user",
 			success: "𝙎𝙚𝙣𝙩 𝙮𝙤𝙪𝙧 𝙢𝙚𝙨𝙨𝙖𝙜𝙚 𝙩𝙤 %1 𝙖𝙙𝙢𝙞𝙣 𝙨𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮!",
 			failed: "An error occurred while sending your message to %1 admin\n%2\nCheck console for more details",
-			reply: "📌 𝙍𝙚𝙥𝙡𝙮 𝙛𝙧𝙤𝙢 𝘽𝙤𝙩 𝘼𝙙𝙢𝙞𝙣:\n\n🗓 | ⏰ 𝗗𝗮𝘁𝗲 𝗔𝗻𝗱 𝗧𝗶𝗺𝗲:\n${formattedDateTime}\n\n࿇ ══━━━━✥◈✥━━━━══ ࿇\n%2\n࿇ ══━━━━✥◈✥━━━━══ ࿇\n\nℹ️ | 𝘙𝘦𝘱𝘭𝘺 𝘵𝘩𝘪𝘴  𝘮𝘦𝘴𝘴𝘢𝘨𝘦  𝘵𝘰 𝘤𝘰𝘯𝘵𝘪𝘯𝘶𝘦  𝘴𝘦𝘯𝘥 𝘮𝘦𝘴𝘴𝘢𝘨𝘦 𝘵𝘰 𝘢𝘥𝘮𝘪𝘯",
+			reply: "📌 𝙍𝙚𝙥𝙡𝙮 𝙛𝙧𝙤𝙢 𝘽𝙤𝙩 𝘼𝙙𝙢𝙞𝙣 %1:\n\n࿇ ══━━━━✥◈✥━━━━══ ࿇\n%2\n࿇ ══━━━━✥◈✥━━━━══ ࿇\n\nℹ | 𝘙𝘦𝘱𝘭𝘺 𝘵𝘩𝘪𝘴  𝘮𝘦𝘴𝘴𝘢𝘨𝘦  𝘵𝘰 𝘤𝘰𝘯𝘵𝘪𝘯𝘶𝘦  𝘴𝘦𝘯𝘥 𝘮𝘦𝘴𝘴𝘢𝘨𝘦 𝘵𝘰 𝘢𝘥𝘮𝘪𝘯",
 			replySuccess: "Sent your reply to admin successfully!",
 			feedback: "📝 Feedback from user %1:\n- User ID: %2%3\n\nContent:\n─────────────────\n%4\n─────────────────\nReply this message to send message to user",
 			replyUserSuccess: "Sent your reply to user successfully!",
@@ -63,7 +63,7 @@ module.exports = {
 		if (config.adminBot.length == 0)
 			return message.reply(getLang("noAdmin"));
 		const senderName = await usersData.getName(senderID);
-		const msg = "==📨️ CALL ADMIN 📨️=="
+		const msg = "==📨 CALL ADMIN 📨=="
 			+ `\n- User Name: ${senderName}`
 			+ `\n- User ID: ${senderID}`
 			+ (isGroup ? getLang("sendByGroup", (await threadsData.get(threadID)).threadName, threadID) : getLang("sendByUser"));
