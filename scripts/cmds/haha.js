@@ -15,6 +15,6 @@ onChat: async function({
 	message,
 	getLang
 }) {
-	if (event.body && event.body.toLowerCase() == "hahaha") return message.reply("what a happy chat my owner 👇https://www.facebook.com/m.zenesha you are especially happy with him HAHA");
+	if (event.body && event.body.toLowerCase() == "hahaha") return message.reply("what a happy chat my owner \n\n➥ https://www.facebook.com/itssmekylebaitit\n\n you are especially happy with him HAHA");
 }
 };
