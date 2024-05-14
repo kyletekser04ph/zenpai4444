@@ -26,43 +26,51 @@
     "dhbc": {
       "reward": 1000
     },
-    "timer": {},
-    "quiz": {
-      "reward": 0
-    },
-    "note": {
-      "delayPerGroup": 250
-    },
-    "datetime": {},
-    "info": {},
     "ads": {
       "deltaNext": 5
-    },
-    "antiout": {
-      "deltaNext": 5
-    },
-    "botnick": {
-      "delayPerGroup": 250
     },
     "cry": {
       "deltaNext": 5
     },
-    "tell": {
+    "datetime": {},
+    "info": {},
+    "quiz": {
+      "reward": 0
+    },
+    "wanted2": {
+      "deltaNext": 5
+    },
+    "spellingbee": {
+      "reward": 30
+    },
+    "antiout": {
+      "deltaNext": 5
+    },
+    "owner2": {},
+    "cumshot": {},
+    "gay": {
+      "deltaNext": 5
+    },
+    "notice": {
       "delayPerGroup": 250
     },
-    "info2": {}
+    "pokebot": {
+      "deltaNext": 5
+    },
+    "qr": {},
+    "rank2": {
+      "deltaNext": 5
+    },
+    "resend": {
+      "deltaNext": 5
+    },
+    "test": {
+      "deltaNext": 5
+    }
   },
   "envEvents": {
     "logsbot": {
       "allow": true
     }
-  },
-  "commandUnload": [
-    "hello.js",
-    "write.js",
-    "war.js",
-    "ai.js",
-    "ai2.js",
-    "prefix.js"
-  ]
-}
+  }
+  }
