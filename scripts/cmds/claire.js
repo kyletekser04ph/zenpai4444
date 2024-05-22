@@ -1,11 +1,11 @@
- const axios = require('axios');
+const axios = require('axios');
 
-const PREFIXES = ["ai2","claire"];
+const PREFIXES = ["gpt2","claire"];
 
 async function askClaire(api, event, message) {
     try {
         const prompt = encodeURIComponent(event.body.split(" ").slice(1).join(" "));
-        const apiUrl = new URL('https://lianeapi.onrender.com/ask/claire');
+        const apiUrl = new URL('https://liaspark.chatbotcommunity.ltd/@LianeAPI_Reworks/api/claire?key=j86bwkwo-8hako-12C&userName=${encodeURIComponent(name || "a user")}&query=${encodeURIComponent(query)}');
         apiUrl.searchParams.append('query', prompt);
 
         const response = await axios.get(apiUrl.toString());
@@ -68,7 +68,7 @@ module.exports = {
             return;
         }
 
-        message.reply(`🕰️ | Fetching answers...`, async (err) => {
+        message.reply(`⏱️ 𝑪𝒍𝒂𝒊𝒓𝒆 𝒂𝒏𝒔𝒘𝒆𝒓𝒊𝒏𝒈 𝒑𝒍𝒆𝒂𝒔𝒆 𝒘𝒂𝒊𝒕...`, async (err) => {
             if (!err) {
                 await askClaire(api, event, message);
             }
