@@ -100,7 +100,7 @@ module.exports = {
 
         if (category !== "info") {
 
-          msg += `\n►〔 ${category.toUpperCase()}  〕\n\n`;
+          msg += `\n►〔 ${category.toUpperCase()}  〕\n`;
 
 
 
