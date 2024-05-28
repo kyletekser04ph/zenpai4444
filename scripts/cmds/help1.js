@@ -1,4 +1,4 @@
-=cmd install help1.js const moment = require("moment-timezone");
+const moment = require("moment-timezone");
 
 const manilaTime = moment.tz('Asia/Manila');
 
