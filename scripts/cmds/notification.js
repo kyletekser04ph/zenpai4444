@@ -1,3 +1,7 @@
+const moment = require("moment-timezone");
+const manilaTime = moment.tz('Asia/Manila');
+const formattedDateTime = manilaTime.format('MMMM D, YYYY h:mm A');
+
 const { getStreamsFromAttachment } = global.utils;
 
 module.exports = {
@@ -31,7 +35,7 @@ module.exports = {
 		},
 		en: {
 			missingMessage: "Please enter the message you want to send to all groups",
-			notification: "Notification from admin bot to all chat groups (do not reply to this message)",
+			notification: "📬𝗡𝗢𝗧𝗜𝗙𝗜𝗖𝗔𝗧𝗜𝗢𝗡 𝗙𝗥𝗢𝗠 𝗔𝗗𝗠𝗜𝗡 𝗧𝗢 𝗔𝗟𝗟 𝗖𝗛𝗔𝗧 𝗚𝗥𝗢𝗨𝗣S\n\n📅 | ⏰ 𝗗𝗔𝗧𝗘 𝗔𝗡𝗗 𝗧𝗜𝗠𝗘 :\n${formattedDateTime}",
 			sendingNotification: "Start sending notification from admin bot to %1 chat groups",
 			sentNotification: "✅ Sent notification to %1 groups successfully",
 			errorSendingNotification: "An error occurred while sending to %1 groups:\n%2"
@@ -43,7 +47,7 @@ module.exports = {
 		if (!args[0])
 			return message.reply(getLang("missingMessage"));
 		const formSend = {
-			body: `${getLang("notification")}\n────────────────\n${args.join(" ")}`,
+			body: `${getLang("notification")}\n━━━━━━━━━━━━━\n📌 𝗠𝗘𝗦𝗦𝗔𝗚𝗘: “${args.join(" ")}“\n━━━━━━━━━━━━━\ntype =callad [yourprompt] to message admin. `,
 			attachment: await getStreamsFromAttachment(
 				[
 					...event.attachments,
