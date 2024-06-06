@@ -28,21 +28,16 @@ module.exports = {
 
         const ownerInfo = {
           name: '𝙆𝙔𝙇𝙀 𝘽𝘼𝙄𝙏-𝙄𝙏',
-          gender: '𝘽𝙤𝙮',
-          hobby: '𝙅𝙪𝙨𝙩 𝙘𝙝𝙞𝙡𝙡𝙞𝙣 𝙡𝙞𝙠𝙚 𝙖 𝙥𝙚𝙖𝙘𝙚𝙛𝙪𝙡 𝙡𝙞𝙛𝙚😉',
-          relationship: '𝙬𝙞𝙩𝙝 𝙇𝙖𝙞 𝙉𝙚',
+          gender: '𝗕𝗼𝘆',
+          hobby: '𝗚𝗔𝗠𝗘𝗥:𝖺𝗍 𝖼𝗈𝖽𝗆/𝗆𝗅/𝖬𝗂𝗇𝖾𝖼𝗋𝖺𝖿𝗍/𝗋𝗈𝖻𝗅𝗈𝗑/𝗈𝖿𝖿𝗅𝗂𝗇𝖾𝗌 𝗀𝖺𝗆𝖾𝗌..𝖾𝗍𝖼..',
+          relationship: '𝗹𝗼𝗮𝗱𝗶𝗻𝗴.....',
           facebookLink: 'https://www.facebook.com/itssmekylebaitit',
-          bio: '📩https://ngl.link/kylezzigop2'
+          bio: '𝗪𝗵𝗮𝘁 𝘆𝗼𝘂 𝗴𝗲𝘁 𝗯𝘆 𝗮𝗰𝗵𝗶𝗲𝘃𝗶𝗻𝗴 𝘆𝗼𝘂𝗿 𝗴𝗼𝗮𝗹𝘀 𝗶𝘀 𝗻𝗼𝘁 𝗮𝘀 𝗶𝗺𝗽𝗼𝗿𝘁𝗮𝗻𝘁 𝗮𝘀 𝘄𝗵𝗮𝘁 𝘆𝗼𝘂 𝗯𝗲𝗰𝗼𝗺𝗲 𝗯𝘆 𝗮𝗰𝗵𝗶𝗲𝘃𝗶𝗻𝗴 𝘆𝗼𝘂𝗿 𝗴𝗼𝗮𝗹𝘀.'
         };
 
         const videoUrl = 
-["https://i.imgur.com/kSVZkHH.mp4",
-"https://i.imgur.com/Ebj77tA.mp4",
-"https://i.imgur.com/5y3yaQQ.mp4",
-"https://i.imgur.com/kDKmrsw.mp4",
-"https://i.imgur.com/gYGp3WW.mp4",
-"https://i.imgur.com/qqT3YRF.mp4",
- ];
+["https://i.imgur.com/gYGp3WW.mp4"];
+        
         const tmpFolderPath = path.join(__dirname, 'tmp');
 
         if (!fs.existsSync(tmpFolderPath)) {
