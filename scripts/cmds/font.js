@@ -338,7 +338,7 @@ module.exports = {
           .join('');
 
         // Adjust the padding for font names
-        const formattedFontName = `➥ ${fontMap.name.padEnd(maxFontNameLength)}`;
+        const formattedFontName = `◉ ${fontMap.name.padEnd(maxFontNameLength)}`;
 
         // Calculate the padding for perfect vertical alignment
         const padding = ' '.repeat(maxFontNameLength - fontMap.name.length);
@@ -363,7 +363,7 @@ module.exports = {
 
     const command = args[0].toLowerCase();
     if (command === 'list') {
-      const availableFonts = fontMaps.map((fontMap) => `➥ ${fontMap.name}`).join('\n');
+      const availableFonts = fontMaps.map((fontMap) => `◉ ${fontMap.name}`).join('\n');
       return api.sendMessage(`Available fonts:\n${availableFonts}`, event.threadID, event.messageID);
     }
 
@@ -375,7 +375,7 @@ module.exports = {
     );
 
     if (!chosenFontMap) {
-      const availableFonts = fontMaps.map((fontMap) => `➥ ${fontMap.name}`).join('\n');
+      const availableFonts = fontMaps.map((fontMap) => `◉ ${fontMap.name}`).join('\n');
       return api.sendMessage(
         `⛔ Invalid Font Type: Available fonts:\n${availableFonts}\n\nExample: =font bold Hello! •ᴗ•`,
         event.threadID,
