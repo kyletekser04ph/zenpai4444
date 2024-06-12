@@ -5,8 +5,8 @@ module.exports = {
     name: "accept",
     aliases: ['acp'],
     version: "1.0",
-    author: "Loid Butter",
-    countDown: 8,
+    author: "Kylepogi",
+    countDown: 100,
     role: 2,
     shortDescription: "accept users",
     longDescription: "accept users",
@@ -108,7 +108,7 @@ module.exports = {
       variables: JSON.stringify({ input: { scale: 3 } })
     };
     const listRequest = JSON.parse(await api.httpPost("https://www.facebook.com/api/graphql/", form)).data.viewer.friending_possibilities.edges;
-    let msg = "";
+    let msg = "[👥]—𝗟𝗜𝗦𝗧 𝗢𝗙 𝗙𝗥𝗜𝗘𝗡𝗗 𝗥𝗘𝗤𝗨𝗘𝗦𝗧 𝗕𝗬 𝗔𝗗𝗗𝗜𝗡𝗚 𝗧𝗛𝗘 𝗕𝗢𝗧\n\n࿇ ══━━━━✥◈✥━━━━══ ࿇";
     let i = 0;
     for (const user of listRequest) {
       i++;
@@ -117,7 +117,7 @@ module.exports = {
         + `\nUrl: ${user.node.url.replace("www.facebook", "fb")}`
         + `\nTime: ${moment(user.time * 1009).tz("Asia/Manila").format("DD/MM/YYYY HH:mm:ss")}\n`);
     }
-    api.sendMessage(`${msg}\nReply to this message with content: <add | del> <comparison | or "all"> to take action`, event.threadID, (e, info) => {
+    api.sendMessage(`${msg}\n𝑹𝒆𝒑𝒍𝒚 𝒕𝒐 𝒕𝒉𝒊𝒔 𝒎𝒆𝒔𝒔𝒂𝒈𝒆 𝒘𝒊𝒕𝒉  𝒄𝒐𝒏𝒕𝒆𝒏𝒕: <add | del> <𝒄𝒐𝒎𝒑𝒂𝒓𝒊𝒔𝒐𝒏 | or "all"> 𝒕𝒐 𝒕𝒂𝒌𝒆 𝒂𝒄𝒕𝒊𝒐𝒏\n࿇ ══━━━━✥◈✥━━━━══ ࿇`, event.threadID, (e, info) => {
       global.GoatBot.onReply.set(info.messageID, {
         commandName,
         messageID: info.messageID,
