@@ -22,7 +22,7 @@
     "whiteListIds": ["",""],
     "notes": "if you enable this feature, only the ids in the whiteListIds section can use the bot"
   },
-  "nickNameBot": "〔 = 〕 ❃➪ 𝗭𝗘𝗣𝗛𝗬𝗥𝗨𝗦𝗩𝟮",
+  "nickNameBot": " [ × ] ☯➢ •𝗭𝗘𝗣𝗛𝗩𝟮 ᴷʸˡᵉ'ˢ ᴮᵒᵗ",
   "prefix": "=",
   "database": {
     "type": "sqlite",
