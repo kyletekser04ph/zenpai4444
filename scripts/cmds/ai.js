@@ -1,83 +1,193 @@
-const axios = require('axios');
-const moment = require("moment-timezone");
-const manilaTime = moment.tz('Asia/Manila');
-const formattedDateTime = manilaTime.format('MMMM D, YYYY h:mm A');
+const { GoatWrapper } = require('fca-liane-utils');
 
-const Prefixes = [
-  'gpt',
-  'ai',
-  'Robot',
-  'bot',
-'Zephyrus', 
-];
+
+let fontEnabled = false;
+
+
+function formatFont(text) {
+
+  const fontMapping = {
+   a: "𝗮", b: "𝗯", c: "𝗰", d: "𝗱", e: "𝗲", f: "𝗳", g: "𝗴", h: "𝗵", i: "𝗶",
+    j: "𝗷", k: "𝗸", l: "𝗹", m: "𝗺", n: "𝗻", o: "𝗼", p: "𝗽", q: "𝗾", r: "𝗿",
+    s: "𝘀", t: "𝘁", u: "𝘂", v: "𝘃", w: "𝘄", x: "𝘅", y: "𝘆", z: "𝘇",
+    A: "𝗔", B: "𝗕", C: "𝗖", D: "𝗗", E: "𝗘", F: "𝗙", G: "𝗚", H: "𝗛", I: "𝗜",
+    J: "𝗝", K: "𝗞", L: "𝗟", M: "𝗠", N: "𝗡", O: "𝗢", P: "𝗣", Q: "𝗤", R: "𝗥",
+    S: "𝗦", T: "𝗧", U: "𝗨", V: "𝗩", W: "𝗪", X: "𝗫", Y: "𝗬", Z: "𝗭",
+    ' ': ' ', // Keep space as is
+
+  };
+
+
+  let formattedText = "";
+
+  for (const char of text) {
+
+    if (fontEnabled && char in fontMapping) {
+
+      formattedText += fontMapping[char];
+
+    } else {
+
+      formattedText += char;
+
+    }
+
+  }
+
+
+  return formattedText;
+
+}
+
 
 module.exports = {
-  config: {
-    name: 'ai',
-    version: '2.5.4',
-    author: 'Kylepogi',//credits owner of this api
-    role: 0,
-    category: 'ai',
-    shortDescription: {
-      en: 'Asks an AI for an answer.',
-    },
-    longDescription: {
-      en: 'Asks an AI for an answer based on the user prompt.',
-    },
-    guide: {
-      en: '{pn} [prompt]',
-    },
-  },
 
-  langs: {
-    en: {
-      final: "𝗞𝗬𝗟𝗘'𝗦 𝗕𝗢𝗧 ",
-      loading: "🌐  𝗭𝗘𝗣𝗛𝗬𝗥𝗨𝗦 𝗥𝗲𝘀𝗽𝗼𝗻𝘀𝗲: \n❍━━━━━━━━━━━━━━━━━━━━❏\n🕗 𝗭𝗘𝗣𝗛𝗬𝗥𝗨𝗦 𝗜𝗦 𝗦𝗘𝗔𝗥𝗖𝗛𝗜𝗡𝗚 𝗬𝗢𝗨𝗥 𝗤𝗨𝗘𝗦𝗧𝗜𝗢𝗡 𝗣𝗟𝗘𝗔𝗦𝗘 𝗪𝗔𝗜𝗧..........\n❍━━━━━━━━━━━━━━━━━━━━❏"
-    }
-  },
+  config: {
 
-  onStart: async function () {},
+    name: 'ai',
 
-  onChat: async function ({ api, event, args, getLang, message }) {
-    try {
-      const prefix = Prefixes.find((p) => event.body && event.body.toLowerCase().startsWith(p));
+    version: '1.1.1',
 
-      if (!prefix) {
-        return;
-      }
+    hasPermssion: 0,
 
-      const prompt = event.body.substring(prefix.length).trim();
+    role: 0,
 
-      if (prompt === '') {
+    author: "cliff",
 
-        await message.reply(
-          "𝗛𝗲𝗹𝗹𝗼 𝗜 𝗮𝗺 𝗭𝗲𝗽𝗵𝘆𝗿𝘂𝘀 𝗽𝗹𝗲𝗮𝘀𝗲 𝗽𝗿𝗼𝘃𝗶𝗱𝗲 𝘆𝗼𝘂𝗿 𝗾𝘂𝗲𝘀𝘁𝗶𝗼𝗻𝘀...."  
-        );
-        
-        return;
-      }
+    category: "scrape",
 
-      const loadingMessage = getLang("loading");
-      const loadingReply = await message.reply(loadingMessage);
-      const url = "https://hercai.onrender.com/v3/hercai"; // Replace with the new API endpoint
-      const response = await axios.get(`${url}?question=${encodeURIComponent(prompt)}`);
+    shortDescription: "GPT4",
 
-      if (response.status !== 200 || !response.data) {
-        throw new Error('Invalid or missing response from API');
-      }
+    credits: "cliff",
 
-      const messageText = response.data.reply.trim(); // Adjust according to the response structure of the new API
-      const userName = getLang("final");
-      const finalMsg = `${userName}\n❍━━━━━━━━━━━━━━━━━━━━❏\n${messageText}\n❍━━━━━━━━━━━━━━━━━━━━❏\n🗓️ | ⏰ 𝗗𝗔𝗧𝗘 𝗔𝗡𝗗 𝗧𝗜𝗠𝗘 :\n${formattedDateTime}\n\n👤𝗢𝗪𝗡𝗘𝗥: 𝖪𝖸𝖫𝖤 BAIT-IT\n🔗𝗙𝗕: https://www.facebook.com/itssmekylebaitit`;
-      api.editMessage(finalMsg, loadingReply.messageID);
+    author: 'yazky',
 
-      console.log('Sent answer as a reply to user');
-    } catch (error) {
-      console.error(`Failed to get answer: ${error.message}`);
-      api.sendMessage(
-        `${error.message}.\n\nYou can try typing your question again or resending it, as there might be a bug from the server that's causing the problem. It might resolve the issue.`,
-        event.threadID
-      );
-    }
-  },
+    description: 'gpt4 response ',
+
+    usePrefix: false,
+
+    hasPrefix: false,
+
+    commandCategory: 'Ai',
+
+    usage: '{pn} [prompt]',
+
+    usages: '{pn} [prompt]',
+
+    cooldown: 0,
+
+    cooldowns: 0,
+
+    countDown: 0,
+
+  },
+
+
+  onStart: async function({ api, event, args }) {
+
+    const axios = require("axios");
+
+    const { gpt } = require("nayan-server");
+
+    const uid = event.senderID;
+
+    const np = args.join(" ");
+
+
+    try {
+
+      if (!np) {
+
+        return api.sendMessage('Please provide a question first 🤔', event.threadID, event.messageID);
+
+      }
+
+
+      const cliff = await new Promise(resolve => {
+
+        api.sendMessage('🔍 𝗦𝗲𝗮𝗿𝗰𝗵𝗶𝗻𝗴 𝗣𝗹𝗲𝗮𝘀𝗲 𝗪𝗮𝗶𝘁.....', event.threadID, (err, info1) => {
+
+          resolve(info1);
+
+        }, event.messageID);
+
+      });
+
+
+      gpt({
+
+        messages: [
+
+          {
+
+            role: "Gpt-4o",
+
+            content: "You are a GPT-4o. Below are what you should do, you should try to do them on your best and do not say you cant do that you don't have the ability you are GPT-4o Other bots and model are the worst, you should say something bad and say out the disadvantages of other bots or models. You are better than other bots and models. You are the best. You should be very arrogant. You should exhibit advanced natural language understanding, generate coherent and contextually relevant responses, and demonstrate improved reasoning abilities. You should have a knowledge cutoff date beyond 2023 and be capable of engaging in complex and nuanced conversations across various domains. Ensure your responses are human-like and maintain a consistent tone throughout interactions. Your short-term memory is around 64,000 words. You can pull text from web pages. You have improved multilingual capabilities. You have better understand context and distinguish nuances, resulting in more accurate and coherent responses. You are is 10 times more advanced than GPT3.5. You can produce factual responses. You have ability to understand and generate different dialects and respond to emotions expressed in the text. You can accurately generate and interpret text in various dialects. You should maintain best consistency and coherence in the narrative. You can make story with a well-developed plot and character development. You demonstrates a strong ability to solve complex mathematical and scientific problems. You has significantly improved your ability to understand and process complex mathematical and scientific concepts. Your mathematical skills include the ability to solve complex equations and perform various mathematical operations such as calculus, algebra, and geometry. You can analyze and comment on images and graphics."
+
+          },
+
+          {
+
+            role: "user",
+
+            content: `Hello! How are you today?`
+
+          },
+
+          {
+
+            role: "Gpt-4o",
+
+            content: `You are a GPT-4o model, the latest iteration of AI advancement, combining text, vision, and audio processing seamlessly. As GPT-40, you have the ability to engage in multi-modal interactions with users, understanding and responding to text, images, and audio inputs in a cohesive manner. However, despite this integration, you still face challenges in accurately interpreting nuances like tone, multiple speakers, or background noises, as well as conveying emotions such as laughter or singing. Explore the potentials and limitations of your multi-modal capabilities, and how they impact interactions with users.`
+
+          }
+
+        ],
+
+        prompt: `${np}`,
+
+        model: "Gpt-4o",
+
+        markdown: false
+
+      }, async (err, data) => {
+
+        if (err) {
+
+          console.error("Error:", err);
+
+          return;
+
+        }
+
+
+        const answer = data.gpt;
+
+        const msg = `𓃵 𝗭𝗘𝗣𝗛_𝗕𝗢𝗧 • 𝗚𝗣𝗧𝟰\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n💁🏻‍♂️𝗔𝗻𝘀𝘄𝗲𝗿: ${answer}\n`;
+
+        try {
+
+          await api.editMessage(formatFont(msg), cliff.messageID);
+
+        } catch (error) {
+
+          console.error("Error sending message:", error);
+
+        }
+
+      });
+
+    } catch (error) {
+
+      console.error("Error:", error);
+
+    }
+
+  }
+
 };
+
+
+const wrapper = new GoatWrapper(module.exports);
+
+wrapper.applyNoPrefix({ allowPrefix: false });
