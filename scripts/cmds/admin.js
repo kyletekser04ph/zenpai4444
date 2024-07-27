@@ -6,7 +6,7 @@ module.exports = {
 		name: "admin",
 		version: "1.6",
 		author: "NTKhang",
-		countDown: 0,
+		countDown: 5,
 		role: 2,
 		description: {
 			vi: "Thêm, xóa, sửa quyền admin",
@@ -40,7 +40,7 @@ module.exports = {
 			removed: "✅ | Removed admin role of %1 users:\n%2",
 			notAdmin: "⚠️ | %1 users don't have admin role:\n%2",
 			missingIdRemove: "⚠️ | Please enter ID or tag user to remove admin role",
-			listAdmin: "👑 | List of admins:\n%1"
+			listAdmin: "👑 | 👤 𝗟𝗶𝘀𝘁 𝗼𝗳 𝗮𝗱𝗺𝗶𝗻𝘀:\n▬▬▬▬▬▬▬▬▬▬▬▬\n%1\n▬▬▬▬▬▬▬▬▬▬▬▬"
 		}
 	},
 
