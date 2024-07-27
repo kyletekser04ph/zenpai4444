@@ -1,3 +1,5 @@
+const { GoatWrapper } = require('fca-liane-utils');
+ const axios = require('axios');
 const moment = require("moment-timezone");
 
 module.exports = {
@@ -130,3 +132,5 @@ module.exports = {
     }, event.messageID);
   }
 };
+const wrapper = new GoatWrapper(module.exports);
+wrapper.applyNoPrefix({ allowPrefix: false });
