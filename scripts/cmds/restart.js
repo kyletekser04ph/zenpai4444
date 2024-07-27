@@ -2,7 +2,7 @@ const fs = require("fs-extra");
 
 module.exports = {
 	config: {
-		name: "restart",
+		name: "res",
 		version: "1.1",
 		author: "NTKhang",
 		countDown: 5,
@@ -23,7 +23,7 @@ module.exports = {
 			restartting: "🔄 | Đang khởi động lại bot..."
 		},
 		en: {
-			restartting: "🔄 | Restarting bot..."
+			restartting: "♻️ | 『𝗭𝗲𝗽𝗵𝘆𝗿𝘂𝘀 𝗕𝗼𝘁』\n▬▬▬▬▬▬▬▬▬▬▬▬\n𝗥𝗲𝘀𝘁𝗮𝗿𝘁𝗶𝗻𝗴 𝗽𝗹𝗲𝗮𝘀𝗲 𝘄𝗮𝗶𝘁...\n▬▬▬▬▬▬▬▬▬▬▬▬"
 		}
 	},
 
@@ -31,7 +31,7 @@ module.exports = {
 		const pathFile = `${__dirname}/tmp/restart.txt`;
 		if (fs.existsSync(pathFile)) {
 			const [tid, time] = fs.readFileSync(pathFile, "utf-8").split(" ");
-			api.sendMessage(`✅ | Bot restarted\n⏰ | Time: ${(Date.now() - time) / 1000}s`, tid);
+			api.sendMessage(`✅ | 𝗕𝗼𝘁 𝗿𝗲𝘀𝘁𝗮𝗿𝘁𝗲𝗱:\n▬▬▬▬▬▬▬▬▬▬▬▬\n⏰ | 𝗧𝗶𝗺𝗲: ${(Date.now() - time) / 1000}s\n▬▬▬▬▬▬▬▬▬▬▬▬`, tid);
 			fs.unlinkSync(pathFile);
 		}
 	},
