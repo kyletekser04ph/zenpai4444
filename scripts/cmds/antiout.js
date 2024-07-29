@@ -1,3 +1,4 @@
+// antiout.js
 const { getTime, drive } = global.utils;
 const moment = require("moment-timezone");
 
@@ -5,7 +6,7 @@ module.exports = {
   config: {
     name: "antiout",
     version: "1.0",
-    author: "AceGun x Kylepogi",//this code is recoded by Kylepogi please if you find this code please don't change the author:) 
+    author: "AceGun x modified by Kylepogi",//this code is recoded by Kyle and fix so don't change author nigga.
     countDown: 0,
     role: 2,
     shortDescription: "Enable or disable antiout",
@@ -55,7 +56,8 @@ module.exports = {
           await api.addUserToGroup(userId, event.threadID);
 
           // Prepare the welcome message
-          const userName = (await api.getUserInfo(userId))[userId].name;
+          const userInfo = await api.getUserInfo(userId);
+          const userName = userInfo[userId]?.name || "User";
           const session = getSession();
           const welcomeMessage = `Welcome back ${userName}!`;
 
@@ -74,7 +76,7 @@ module.exports = {
     }
   },
 
-  onStart: async function({ message, event, threadsData, api, usersData, getLang }) {
+  onLeave: async function({ message, event, threadsData, api, usersData, getLang }) {
     if (event.logMessageType !== "log:unsubscribe") return;
 
     const { threadID } = event;
@@ -128,4 +130,4 @@ function getSession() {
   if (hours <= 12) return "𝗻𝗼𝗼𝗻";
   if (hours <= 18) return "𝗮𝗳𝘁𝗲𝗿𝗻𝗼𝗼𝗻";
   return "𝗲𝘃𝗲𝗻𝗶𝗻𝗴";
-  }
+}
