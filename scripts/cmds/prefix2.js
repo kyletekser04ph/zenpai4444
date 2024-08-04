@@ -1,35 +1,90 @@
-const moment = require("moment-timezone");
-const minecraftFacts = [
-   	"𝘐𝘵'𝘴 𝘯𝘰𝘵 𝘢𝘣𝘰𝘶𝘵 𝘣𝘦𝘪𝘯𝘨 𝘵𝘩𝘦 𝘣𝘦𝘴𝘵, 𝘪𝘵'𝘴 𝘢𝘣𝘰𝘶𝘵 𝘣𝘦𝘪𝘯𝘨 𝘣𝘦𝘵𝘵𝘦𝘳 𝘵𝘩𝘢𝘯 𝘺𝘰𝘶 𝘸𝘦𝘳𝘦 𝘺𝘦𝘴𝘵𝘦𝘳𝘥𝘢𝘺.", "𝘊𝘰𝘶𝘳𝘢𝘨𝘦 𝘪𝘴 𝘯𝘰𝘵 𝘵𝘩𝘦 𝘢𝘣𝘴𝘦𝘯𝘤𝘦 𝘰𝘧 𝘧𝘦𝘢𝘳, 𝘣𝘶𝘵 𝘳𝘢𝘵𝘩𝘦𝘳 𝘵𝘩𝘦 𝘫𝘶𝘥𝘨𝘮𝘦𝘯𝘵 𝘵𝘩𝘢𝘵 𝘴𝘰𝘮𝘦𝘵𝘩𝘪𝘯𝘨 𝘦𝘭𝘴𝘦 𝘪𝘴 𝘮𝘰𝘳𝘦 𝘪𝘮𝘱𝘰𝘳𝘵𝘢𝘯𝘵 𝘵𝘩𝘢𝘯 𝘧𝘦𝘢𝘳.", "𝘠𝘰𝘶 𝘥𝘰𝘯'𝘵 𝘥𝘦𝘷𝘦𝘭𝘰𝘱 𝘤𝘰𝘶𝘳𝘢𝘨𝘦 𝘣𝘺 𝘣𝘦𝘪𝘯𝘨 𝘩𝘢𝘱𝘱𝘺 𝘪𝘯 𝘺𝘰𝘶𝘳 𝘳𝘦𝘭𝘢𝘵𝘪𝘰𝘯𝘴𝘩𝘪𝘱𝘴 𝘦𝘷𝘦𝘳𝘺𝘥𝘢𝘺. 𝘠𝘰𝘶 𝘥𝘦𝘷𝘦𝘭𝘰𝘱 𝘪𝘵 𝘣𝘺 𝘴𝘶𝘳𝘷𝘪𝘷𝘪𝘯𝘨 𝘥𝘪𝘧𝘧𝘪𝘤𝘶𝘭𝘵 𝘵𝘪𝘮𝘦𝘴 𝘢𝘯𝘥 𝘤𝘩𝘢𝘭𝘭𝘦𝘯𝘨𝘪𝘯𝘨 𝘢𝘥𝘷𝘦𝘳𝘴𝘪𝘵𝘺.", "𝘊𝘰𝘶𝘳𝘢𝘨𝘦 𝘪𝘴 𝘸𝘩𝘢𝘵 𝘪𝘵 𝘵𝘢𝘬𝘦𝘴 𝘵𝘰 𝘴𝘵𝘢𝘯𝘥 𝘶𝘱 𝘢𝘯𝘥 𝘴𝘱𝘦𝘢𝘬; 𝘤𝘰𝘶𝘳𝘢𝘨𝘦 𝘪𝘴 𝘢𝘭𝘴𝘰 𝘸𝘩𝘢𝘵 𝘪𝘵 𝘵𝘢𝘬𝘦𝘴 𝘵𝘰 𝘴𝘪𝘵 𝘥𝘰𝘸𝘯 𝘢𝘯𝘥 𝘭𝘪𝘴𝘵𝘦𝘯.", "𝘠𝘰𝘶 𝘤𝘢𝘯'𝘵 𝘣𝘶𝘪𝘭𝘥 𝘢 𝘳𝘦𝘱𝘶𝘵𝘢𝘵𝘪𝘰𝘯 𝘰𝘯 𝘸𝘩𝘢𝘵 𝘺𝘰𝘶 𝘢𝘳𝘦 𝘨𝘰𝘪𝘯𝘨 𝘵𝘰 𝘥𝘰.",  "𝘛𝘩𝘦 𝘰𝘯𝘭𝘺 𝘱𝘦𝘳𝘴𝘰𝘯 𝘺𝘰𝘶 𝘴𝘩𝘰𝘶𝘭𝘥 𝘵𝘳𝘺 𝘵𝘰 𝘣𝘦 𝘣𝘦𝘵𝘵𝘦𝘳 𝘵𝘩𝘢𝘯 𝘪𝘴 𝘵𝘩𝘦 𝘱𝘦𝘳𝘴𝘰𝘯 𝘺𝘰𝘶 𝘸𝘦𝘳𝘦 𝘺𝘦𝘴𝘵𝘦𝘳𝘥𝘢𝘺.",  "𝘠𝘰𝘶 𝘢𝘳𝘦 𝘯𝘦𝘷𝘦𝘳 𝘵𝘰𝘰 𝘰𝘭𝘥 𝘵𝘰 𝘴𝘦𝘵 𝘢𝘯𝘰𝘵𝘩𝘦𝘳 𝘨𝘰𝘢𝘭 𝘰𝘳 𝘵𝘰 𝘥𝘳𝘦𝘢𝘮 𝘢 𝘯𝘦𝘸 𝘥𝘳𝘦𝘢𝘮.",  "𝘍𝘢𝘪𝘵𝘩 𝘪𝘴 𝘵𝘩𝘦 𝘴𝘶𝘣𝘴𝘵𝘢𝘯𝘤𝘦 𝘰𝘧 𝘵𝘩𝘪𝘯𝘨𝘴 𝘩𝘰𝘱𝘦𝘥 𝘧𝘰𝘳, 𝘵𝘩𝘦 𝘦𝘷𝘪𝘥𝘦𝘯𝘤𝘦 𝘰𝘧 𝘵𝘩𝘪𝘯𝘨𝘴 𝘯𝘰𝘵 𝘴𝘦𝘦𝘯.", "𝘍𝘢𝘪𝘵𝘩 𝘪𝘴 𝘵𝘢𝘬𝘪𝘯𝘨 𝘵𝘩𝘦 𝘧𝘪𝘳𝘴𝘵 𝘴𝘵𝘦𝘱 𝘦𝘷𝘦𝘯 𝘸𝘩𝘦𝘯 𝘺𝘰𝘶 𝘥𝘰𝘯'𝘵 𝘴𝘦𝘦 𝘵𝘩𝘦 𝘸𝘩𝘰𝘭𝘦 𝘴𝘵𝘢𝘪𝘳𝘤𝘢𝘴𝘦.", "𝘈 𝘴𝘪𝘯𝘨𝘭𝘦 𝘢𝘤𝘵 𝘰𝘧 𝘬𝘪𝘯𝘥𝘯𝘦𝘴𝘴 𝘵𝘩𝘳𝘰𝘸𝘴 𝘰𝘶𝘵 𝘳𝘰𝘰𝘵𝘴 𝘪𝘯 𝘢𝘭𝘭 𝘥𝘪𝘳𝘦𝘤𝘵𝘪𝘰𝘯𝘴, 𝘢𝘯𝘥 𝘵𝘩𝘦 𝘳𝘰𝘰𝘵𝘴 𝘴𝘱𝘳𝘪𝘯𝘨 𝘶𝘱 𝘢𝘯𝘥 𝘮𝘢𝘬𝘦 𝘯𝘦𝘸 𝘵𝘳𝘦𝘦𝘴.",  "𝘛𝘩𝘦 𝘣𝘦𝘴𝘵 𝘸𝘢𝘺 𝘵𝘰 𝘧𝘪𝘯𝘥 𝘺𝘰𝘶𝘳𝘴𝘦𝘭𝘧 𝘪𝘴 𝘵𝘰 𝘭𝘰𝘴𝘦 𝘺𝘰𝘶𝘳𝘴𝘦𝘭𝘧 𝘪𝘯 𝘵𝘩𝘦 𝘴𝘦𝘳𝘷𝘪𝘤𝘦 𝘰𝘧 𝘰𝘵𝘩𝘦𝘳𝘴.",  "𝘒𝘪𝘯𝘥𝘯𝘦𝘴𝘴 𝘪𝘴 𝘵𝘩𝘦 𝘭𝘢𝘯𝘨𝘶𝘢𝘨𝘦 𝘸𝘩𝘪𝘤𝘩 𝘵𝘩𝘦 𝘥𝘦𝘢𝘧 𝘤𝘢𝘯 𝘩𝘦𝘢𝘳 𝘢𝘯𝘥 𝘵𝘩𝘦 𝘣𝘭𝘪𝘯𝘥 𝘤𝘢𝘯 𝘴𝘦𝘦." , "𝘉𝘦 𝘬𝘪𝘯𝘥, 𝘧𝘰𝘳 𝘦𝘷𝘦𝘳𝘺𝘰𝘯𝘦 𝘺𝘰𝘶 𝘮𝘦𝘦𝘵 𝘪𝘴 𝘧𝘪𝘨𝘩𝘵𝘪𝘯𝘨 𝘢 𝘩𝘢𝘳𝘥 𝘣𝘢𝘵𝘵𝘭𝘦."
+const { GoatWrapper } = require('fca-liane-utils');
+const os = require("os");
+
+const uptimeFacts = [
+  "The only limit to our realization of tomorrow will be our doubts of today.",
+  "Every day may not be good, but there's something good in every day.",
+  "Success is stumbling from failure to failure with no loss of enthusiasm.",
+  "The future belongs to those who believe in the beauty of their dreams.",
+  "The only way to do great work is to love what you do.",
+  "Don't watch the clock; do what it does. Keep going.",
+  "The best way to predict the future is to create it.",
+  "The journey of a thousand miles begins with one step.",
+  "Believe you can and you're halfway there.",
+  "Life is 10% what happens to us and 90% how we react to it."
 ];
+const startTime = new Date();
 
 module.exports = {
-    config: {
-        name: "prefix2",
-        version: "1.0",
-        author: "Tokodori_Frtiz",
-        countDown: 5,
-        role: 0,
-        shortDescription: "no prefix",
-        longDescription: "no prefix",
-        category: "auto 🪐",
+  config: {
+    name: "prefix2",
+    aliases: ["prefix nito? ", "ano prefix? ", "p", "prefix"],
+    author: "Kylepogi",
+    countDown: 0,
+    role: 0,
+    category: "system",
+    longDescription: {
+      en: "Get System Information",
     },
-    onStart: async function() {},
-    onChat: async function({ event, message, getLang }) {
-        const manilaTime = moment.tz('Asia/Manila');
-        const formattedDateTime = manilaTime.format('MMMM D, YYYY h:mm A');
-        
-        if (event.body && event.body.toLowerCase() === "prefix") {
-            const randomFact = minecraftFacts[Math.floor(Math.random() * minecraftFacts.length)];
-            
-            return message.reply({
-                body: `
- [𓃵]—𝗭𝗘𝗣𝗛𝗬𝗥𝗨𝗦 𝗣𝗥𝗘𝗙𝗜𝗫 𝗜𝗦:
-       ➣ 𝗕𝗼𝘁 𝗽𝗿𝗲𝗳𝗶𝘅: 『 = 』 ࿇══━━━━✥◈✥━━━━══ ࿇
-    📅 | ⏰ Date And Time: 
-     ${formattedDateTime} ࿇══━━━━✥◈✥━━━━══ ࿇
-📍𝗙𝗔𝗖𝗧: ${randomFact}`,
-            });
+  },
+  
+  onStart: async function ({ api, event, args, threadsData, usersData }) {
+    try {
+      const uptimeInSeconds = (new Date() - startTime) / 1000;
+      const seconds = uptimeInSeconds;
+      const days = Math.floor(seconds / (3600 * 24));
+      const hours = Math.floor((seconds % (3600 * 24)) / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+      const secondsLeft = Math.floor(seconds % 60);
+      const uptimeFormatted = `${days}d ${hours}h ${minutes}m ${secondsLeft}s`;
+
+      const cpuUsage =
+        os
+          .cpus()
+          .map((cpu) => cpu.times.user)
+          .reduce((acc, curr) => acc + curr) / os.cpus().length;
+
+      const totalMemoryGB = os.totalmem() / 1024 ** 3;
+      const freeMemoryGB = os.freemem() / 1024 ** 3;
+      const usedMemoryGB = totalMemoryGB - freeMemoryGB;
+
+      const allUsers = await usersData.getAll();
+      const allThreads = await threadsData.getAll();
+      const currentDate = new Date();
+      const date = currentDate.toLocaleDateString("en-US", { year: "numeric", month: "numeric", day: "numeric" });
+      const time = currentDate.toLocaleTimeString("en-US", { timeZone: "Asia/Manila", hour12: true });
+
+      const timeStart = Date.now();
+      await api.sendMessage({ body: "🌐 𝗠𝘆 𝗽𝗿𝗲𝗳𝗶𝘅 𝗶𝘀...." }, event.threadID);
+      const ping = Date.now() - timeStart;
+      let pingStatus = "⛔| 𝖡𝖺𝖽 𝖲𝗒𝗌𝗍𝖾𝗆";
+      if (ping < 1000) {
+        pingStatus = "✅| 𝖲𝗆𝗈𝗈𝗍𝗁 𝖲𝗒𝗌𝗍𝖾𝗆";
+      }
+
+      const randomFact = uptimeFacts[Math.floor(Math.random() * uptimeFacts.length)];
+      const systemInfo = `    ◈𝙕𝙀𝙋𝙃 𝘽𝙊𝙏𝙑𝟮◉\n    𝗠𝗬 𝗣𝗥𝗘𝗙𝗜𝗫 𝗜𝗦: [ = ]\n\n    ⏰𝗨𝗣𝗧𝗜𝗠𝗘: ${uptimeFormatted}\n    📆 𝗗𝗔𝗧𝗘: ${date}\n    ⏰ 𝗧𝗜𝗠𝗘: ${time}\n    🛫𝗣𝗜𝗡𝗚: ${ping}`;
+
+      const attachment = await global.utils.getStreamFromURL("https://i.imgur.com/kb57F4o.jpeg");
+
+      api.sendMessage(
+        { body: systemInfo, attachment },
+        event.threadID,
+        (err, messageInfo) => {
+          if (err) {
+            console.error("Error sending message with attachment:", err);
+            api.sendMessage("Unable to send system information.", event.threadID, event.messageID); // Send error message if sending fails
+          } else {
+            console.log("Message with attachment sent successfully:", messageInfo);
+          }
         }
+      );
+    } catch (error) {
+      console.error("Error retrieving system information:", error);
+      api.sendMessage("Unable to retrieve system information.", event.threadID, event.messageID); // Send error message if retrieval fails
     }
+  },
 };
+
+const wrapper = new GoatWrapper(module.exports);
+wrapper.applyNoPrefix({ allowPrefix: false });
