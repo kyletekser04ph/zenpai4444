@@ -1,4 +1,5 @@
-const axios = require("axios");
+const axios = require('axios');
+const { GoatWrapper } = require('fca-liane-utils');
 const fs = require('fs-extra');
 const path = require('path');
 const { getStreamFromURL, shortenURL, randomString } = global.utils;
@@ -78,11 +79,11 @@ async function video(api, event, args, message) {
 
         writer.on('error', (error) => {
             console.error("Error:", error);
-            message.reply("error");
+            message.reply("nahh bro it's error");
         });
     } catch (error) {
         console.error("Error:", error);
-        message.reply("error");
+        message.reply("nahh bro it's error");
     }
 }
 
@@ -102,3 +103,5 @@ module.exports = {
         return video(api, event, args, message);
     }
 };
+const wrapper = new GoatWrapper(module.exports);
+wrapper.applyNoPrefix({ allowPrefix: true });
