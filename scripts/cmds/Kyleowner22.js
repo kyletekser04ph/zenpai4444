@@ -23,20 +23,22 @@ module.exports = {
   },
   onStart: async function ({ api, event }) {
       try {
-        const loadingMessage = "⏱️ 𝙇𝙤𝙖𝙙𝙞𝙣𝙜 𝙥𝙡𝙚𝙖𝙨𝙚 𝙬𝙖𝙞𝙩......";
+        const loadingMessage = "⏱ 𝙇𝙤𝙖𝙙𝙞𝙣𝙜 𝙥𝙡𝙚𝙖𝙨𝙚 𝙬𝙖𝙞𝙩......";
         await api.sendMessage(loadingMessage, event.threadID);
 
         const ownerInfo = {
-          name: '𝖪𝗒𝗅𝖾 𝖡𝖺𝗂𝗍-𝗂𝗍',
-          gender: '𝖡𝗈𝗒',
-          hobby: '𝗉𝗅𝖺𝗒𝗂𝗇𝗀 𝗀𝖺𝗆𝖾𝗌 𝖾𝗍𝖼.',
-          relationship: ' 𝗄𝗎𝗆𝖺𝗂𝗇 𝗄𝖺𝗇𝖺 𝖻𝖺?',
-          facebookLink: 'https://www.facebook.com/itssmekylebaitit',
-          bio: 'Be kind whenever possible. It is always possible.'
+          name: 'Kyle敦. ဗီူ',
+          gender: '𝖡𝗈𝗒', 
+          talent: 'mabilis mag ,magaling hinala, mabilis mag selos, mabilis kumaldagv2, bounce kana', 
+          sports: 'Soccer, sepak takraw, taekwondo, karate, kick boxing, boxing, etc', 
+          hobby: '𝗉𝗅𝖺𝗒𝗂𝗇𝗀 𝗀𝖺𝗆𝖾𝗌, 𝖾𝗍𝖼.',
+          relationship: '𝗳𝘃𝗸 𝗹𝗼𝘃𝗲',
+          facebookLink: 'https://www.facebook.com/kyledev03',
+          bio: '𝗳𝘃𝗸 𝗹𝗶𝗳𝗲/𝗮𝘁𝘁𝗶𝘁𝘂𝗱𝗲.'
         };
 
         const videoUrl = 
-["https://i.imgur.com/gYGp3WW.mp4"];
+["https://i.imgur.com/C8IedFb.mp4"];
         
         const tmpFolderPath = path.join(__dirname, 'tmp');
 
@@ -54,13 +56,15 @@ module.exports = {
 ࿇ ══━━━━✥◈✥━━━━══ ࿇    
  𝗡𝗔𝗠𝗘:${ownerInfo.name}  
  ━━━━━━━━━━━━━━━━━
- 👤𝗚𝗘𝗡𝗗𝗘𝗥:${ownerInfo.gender}
- 💫𝗛𝗼𝗯𝗯𝘆:${ownerInfo.hobby}
- 💞𝗥𝗘𝗟𝗔𝗧𝗜𝗢𝗡𝗦𝗛𝗜𝗣: ${ownerInfo.relationship}
+ 👤𝙶𝚎𝚗𝚍𝚎𝚛: ${ownerInfo.gender}
+𝙼𝚢 𝚃𝚊𝚕𝚎𝚗𝚝 𝚒𝚜: ${ownerInfo.talent}
+𝙼𝚢 𝚜𝚙𝚘𝚛𝚝𝚜 𝚒𝚜:  ${ownerInfo.sports}
+ 𝙼𝚢 𝚑𝚘𝚋𝚋𝚢 𝚒𝚜: ${ownerInfo.hobby}
+ 𝚁𝚎𝚕𝚊𝚝𝚒𝚘𝚗𝚜𝚑𝚒𝚙 𝚠𝚒𝚝𝚑: ${ownerInfo.relationship}
   ━━━━━━━━━━━━━━━━━
- 𝗙𝗔𝗖𝗘𝗕𝗢𝗢𝗞—[🔗]:${ownerInfo.facebookLink}
+ 𝙵𝚊𝚌𝚎𝚋𝚘𝚘𝚔 𝙻𝚒𝚗𝚔—[🔗]:${ownerInfo.facebookLink}
   ━━━━━━━━━━━━━━━━━
- 𝗠𝗢𝗧𝗧𝗢:${ownerInfo.bio} 
+ 𝚖𝚘𝚝𝚝𝚘:${ownerInfo.bio} 
 ࿇ ══━━━━✥◈✥━━━━══ ࿇
  `;
 
@@ -85,4 +89,3 @@ module.exports = {
       }
     }
   };
-  
