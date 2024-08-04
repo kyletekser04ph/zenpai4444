@@ -236,7 +236,7 @@ const Prefixes = [
 module.exports = {
     config: {
         name: "ai",
-        aliases: ["Ai","gemini"], 
+        aliases: ["Ai"], 
         version: "1.0.0",
         author: "Shikaki modified by Kylepogi",
         countDown: 5,
