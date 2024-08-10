@@ -48,7 +48,7 @@ onReply: async function({ api, event, Reply, getLang, commandName, prefix }) {
         const index = body.split(/\s+/);
         for (const singleIndex of index) {
             if (isNaN(singleIndex) || singleIndex <= 0 || singleIndex > Reply.pending.length) return api.sendMessage(getLang("invaildNumber", singleIndex), threadID, messageID);
-            api.sendMessage(`🔴🟠🟡🟢\n 「 𝗔𝗣𝗣𝗥𝗢𝗩𝗘𝗗 」\n\n •This thread is officially approved by the owner.\n\n  Enjoy using the bot and please do not spam.\n\n DON'T FORGET TO ADD MY OWNER: https://www.facebook.com/itssmekylebaitit\n`, Reply.pending[singleIndex - 1].threadID);
+            api.sendMessage(`=======𝙰𝙿𝙿𝚁𝙾𝚅𝙴𝙳 𝚂𝚄𝙲𝙲𝙴𝚂𝚂𝙵𝚄𝙻𝙻𝚈=======\n╰┈➣「 𝗔𝗣𝗣𝗥𝗢𝗩𝗘𝗗 」\n\n •This thread is officially approved by the owner.\n\n  Enjoy using the bot and please do not spam.\n\n📩𝚊𝚍𝚖𝚒𝚗/𝚘𝚠𝚗𝚎𝚛: https://www.facebook.com/kyledev03\n`, Reply.pending[singleIndex - 1].threadID);
             count+=1;
         }
         return api.sendMessage(getLang("approveSuccess", count), threadID, messageID);
